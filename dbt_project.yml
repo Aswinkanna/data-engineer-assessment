@@ -1,0 +1,27 @@
+name: 'ga4_attribution'
+version: '1.0.0'
+config-version: 2
+
+# The profile name must match the one in ~/.dbt/profiles.yml
+profile: 'ga4_attribution'
+
+# Paths
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Models configuration
+models:
+  ga4_attribution:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    marts:
+      +schema: marts
+      +materialized: table
