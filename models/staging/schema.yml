@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: "Staging model for GA4 events"
+    columns:
+      - name: user_pseudo_id
+        tests:
+          - not_null
+      - name: event_timestamp
+        tests:
+          - not_null
+
+  - name: int_user_events
+    description: "Deduplicated user-level events"
+    columns:
+      - name: user_pseudo_id
+        tests:
+          - not_null
