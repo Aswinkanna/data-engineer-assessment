@@ -4,7 +4,7 @@ with events as (
         *,
         row_number() over (
             partition by user_pseudo_id, event_name
-            order by event_timestamp
+            order by event_timestamp desc
         ) as rn
     from {{ ref('stg_events') }}
 )
