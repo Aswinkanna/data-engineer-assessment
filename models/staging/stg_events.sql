@@ -1,27 +1,30 @@
-with raw as (
+WITH raw AS (
 
     -- Historical GA4 data
-    select
+    SELECT
         event_date,
         event_timestamp,
         user_pseudo_id,
         event_name,
-        coalesce(traffic_source.source, 'direct') as source,
-        coalesce(traffic_source.medium, 'none') as medium
-    from `dbtproject-395506.ga4_demo.events_20210131`
+        COALESCE(traffic_source.source, 'direct') AS source,
+        COALESCE(traffic_source.medium, 'none')  AS medium,
+        TIMESTAMP_MICROS(event_timestamp) AS event_ts  -- convert INT64 microseconds to TIMESTAMP
+    FROM `dbtproject-395506.ga4_demo.events_2021*`
 
-    union all
+    UNION ALL
 
     -- Real-time streaming data
-    select
-        cast(event_date as string) as event_date,
-        cast(unix_micros(event_timestamp) as int64) as event_timestamp,
+    SELECT
+        CAST(event_date AS STRING) AS event_date,
+        CAST(event_timestamp AS INT64) AS event_timestamp,
         user_pseudo_id,
         event_name,
-        'direct' as source,                 
-        'none' as medium
-    from `dbtproject-395506.ga4_demo.events_stream`
+        'direct' AS source,
+        'none'   AS medium,
+        TIMESTAMP_MICROS(event_timestamp) AS event_ts  -- convert streaming INT64 microseconds
+    FROM `dbtproject-395506.ga4_demo.events_stream`
+
 )
 
-select *
-from raw
+SELECT *
+FROM raw
