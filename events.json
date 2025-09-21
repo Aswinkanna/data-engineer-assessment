@@ -1,0 +1,6 @@
+{"event_date": "20210201", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_131", "event_name": "page_view"}
+{"event_date": "20210201", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_132", "event_name": "session_start"}
+{"event_date": "20210201", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_133", "event_name": "add_to_cart"}
+{"event_date": "20210201", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_134", "event_name": "purchase"}
+{"event_date": "20210201", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_135", "event_name": "scroll"}
+{"event_date": "20210301", "event_timestamp": 1612141199000000, "user_pseudo_id": "user_136", "event_name": "scroll"}
