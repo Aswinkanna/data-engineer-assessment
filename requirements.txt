@@ -1,0 +1,9 @@
+# BigQuery and Google Cloud
+google-cloud-bigquery==3.10.0
+
+dbt-bigquery==1.6.0
+
+streamlit==1.27.0
+
+pandas==2.1.0
+numpy==1.26.0
